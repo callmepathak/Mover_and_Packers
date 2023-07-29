@@ -1,0 +1,50 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Add Service Detail</h5>
+<div class="container-fluid"> 
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}        
+    <div class="form-row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Service Title</label>
+                <input type="text" name="servicetitle"  class="form-control" placeholder="Service Title">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Description</label>
+                <textarea name="description"  class="form-control" placeholder="Description"></textarea>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Image</label>
+                <input type="file" name="image"  class="form-control" >
+            </div>
+        </div>
+
+
+    </div>
+    <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+</form>
+</div>
+</div>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Service has been added.');
+    window.location=('{% url 'manage_services' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+{% endblock %}

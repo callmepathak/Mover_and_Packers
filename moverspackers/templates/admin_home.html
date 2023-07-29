@@ -1,0 +1,65 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+
+
+<div class="row">
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+            <h4 class="text-success">Total Services</h4>
+            <h5>{{totalservices}}</h5>
+        </div>
+        <div class="card-footer">
+            <a href="{% url 'manage_services' %}">View Details >></a>
+        </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+                <h4 class="text-success">Total Unread Queries</h4>
+                <h5>{{totalunread}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'unread_queries' %}">View Details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+            <h4 class="text-success">Total Read Queries</h4>
+            <h5>{{totalread}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'read_queries' %}">View Details >></a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+            <h4 class="text-success">Total New Bookings</h4>
+            <h5> {{totalnewbooking}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'new_booking' %}">View Details >></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3 p-2">
+        <div class="card shadow">
+            <div class="card-body">
+            <h4 class="text-success">Todays Old Bookings</h4>
+            <h5>{{totaloldbooking}}</h5>
+            </div>
+            <div class="card-footer">
+                <a href="{% url 'old_booking' %}">View Details >></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock  %}

@@ -1,0 +1,57 @@
+{% load static %}
+
+<html>
+<head>
+{% include 'header.html' %}
+
+</head>
+<body>
+{% include 'navigation.html' %}
+
+
+<br><br><br><br><br>
+<section id="about" class="section-padding about-section">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="section-title">
+                    <div class="section-subtitle">About Us</div>
+                    <h2 class="section-main-title">We Are <strong>Professionals</strong></h2>
+                </div>
+                <div class="about-item">
+                    <p>We understand that moving to a new place
+                         can be a stressful and overwhelming experience. 
+                         That's why we are here to make your relocation journey 
+                         hassle-free and smooth. Our professional mover and packer 
+                         service ensures that your belongings are handled with 
+                         utmost care and attention to detail. From expert packing and 
+                         secure transportation to efficient unpacking at your 
+                         new destination, we've got you covered every step of the way.
+                         With years of experience and a dedicated team, 
+                         we take pride in providing exceptional service and personalized
+                         solutions to meet your specific needs. Trust us to make your move a 
+                         seamless and memorable one. Welcome to a stress-free moving experience with us!</p>
+                </div>
+
+            </div>
+
+            <div class="col-sm-4 offset-sm-2">
+                <div class="about-box">
+                    <!--<div class="box-overlay"></div>-->
+
+                    <img src="{% static 'images/car-transportation.jpg' %}">
+                   <!-- <span class="sonar-wrapper">
+                        <span class="sonar-emitter">
+                            <i class="fa fa-play"></i>
+                            <span class="sonar-wave"></span>
+                        </span>
+                    </span>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+</body>
+</html>

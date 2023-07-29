@@ -1,0 +1,42 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">View Enquiry Detail</h5>
+<div class="container-fluid">
+
+        <table border="1" class="table table-bordered">
+ <tr align="center">
+<td colspan="4" style="font-size:20px;color:red">
+ View Enquiry Details</td></tr>
+
+    <tr>
+    <th>Name</th>
+    <td>{{contact.name}}</td>
+    <th>Contact Number</th>
+    <td>{{contact.contact}}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{contact.emailid}}</td>
+    <th>Subject</th>
+    <td>{{contact.subject}}</td>
+  </tr>
+  <tr>
+     <th >Message</th>
+    <td colspan="3">{{contact.message}}</td>
+  </tr>
+            <tr>
+     <th >Enquiry Date</th>
+    <td colspan="3">{{contact.mdate}}</td>
+  </tr>
+
+
+
+</table>
+
+</div>
+</div>
+</div>
+{% endblock %}

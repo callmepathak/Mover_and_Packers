@@ -1,0 +1,61 @@
+{% load static %}
+
+<html>
+<head>
+{% include 'header.html' %}
+<style>
+
+</style>
+
+</head>
+<body>
+{% include 'navigation.html' %}
+
+ <!-- Start Header Jumbotron-->
+  <header class="container-fluid" style="border : 1px solid yellow ;">
+    <img src="{% static 'images/1.jpg' %}" class="img-responsive" width="100%">
+  </header> <!-- End Header Jumbotron -->
+
+<!--
+A breadcrumb navigation provide links back to each previous page the user navigated through,
+and shows the user's current location in a website.
+-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'index' %}" >Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Services</li>
+  </ol>
+</nav>
+
+
+<div class="container">
+<h3 class="page-title text-center">Services</h3>
+			<p class="text-center text-primary mt-2 font-weight-bold">from our Side</p>
+
+<div class="row">
+
+  {% for i in services %}
+  <div class="col-sm-4 p-2">
+
+    <div class="card" style="width:300px">
+      <img class="card-img-top" src="{{i.image.url}}" alt="Card image" style="width:100% ; height : 200px">
+        <div class="card-body">
+          <h4 class="card-title text-center">{{i.title}}</h4>
+            <p class="card-text text-justify">{{i.description}}</p>
+        </div>
+    </div>
+
+  </div>
+
+  {% endfor %}
+
+
+
+
+</div>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">View Booking Detail</h5>
+<div class="container-fluid">
+
+         <table class="table table-bordered">
+ <tr align="center">
+<td colspan="4" style="font-size:20px;color:red">
+ Booking Details</td></tr>
+
+    <tr>
+    <th>Name</th>
+    <td>{{booking.name}}</td>
+    <th>Mobile Number</th>
+    <td>{{booking.mobile}}</td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>{{booking.email}}</td>
+    <th>Location Shift From</th>
+    <td>{{booking.location}}</td>
+  </tr>
+  <tr>
+    <th>Location Shift To</th>
+    <td>{{booking.shiftingloc}}</td>
+     <th>Date of Shifting</th>
+    <td>{{booking.shiftingdate}}</td>
+  </tr>
+
+  <tr>
+
+    <th>Brief of Items</th>
+    <td>{{booking.briefitems}}</td>
+     <th>Items to be shift</th>
+    <td>{{booking.items}}</td>
+  </tr>
+   <tr>
+
+
+    <th>Request Date</th>
+    <td>{{booking.requestdate}}</td>
+  </tr>
+             {% if not booking.remark %}
+<form method="post">
+    {% csrf_token %}
+    <tr>
+                                                <th>Admin Remark</th>
+                                                <td colspan="3"><textarea name="remark" class="form-control" required="true"></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>&nbsp;</td>
+                                                    <td colspan="3">
+                                                        <button type="submit" class="btn btn-primary pull-left">
+        Update <i class="fa fa-arrow-circle-right"></i>
+                                </button>
+
+                                                    </td>
+                                                </tr>
+</form>
+                                                    {% else %}
+
+    <tr>
+                                                <th>Admin Remark</th>
+                                                <td colspan="1">{{booking.remark}}</td>
+                                                 <th>Last Updation Date</th>
+                                                <td >{{booking.updationdate}}</td>
+                                                </tr>
+
+
+                                                {% endif %}
+</table>
+</div>
+</div>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Remark has been updated successfully.');
+    window.location=('{% url 'view_bookingdetail' booking.id %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+{% endblock %}

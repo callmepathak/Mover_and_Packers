@@ -1,0 +1,125 @@
+{% load static %}
+
+<html>
+<head>
+{% include 'header.html' %}
+<style>
+
+</style>
+
+</head>
+<body>
+{% include 'navigation.html' %}
+
+ <!-- Start Header Jumbotron-->
+  <header class="container-fluid" style="border : 1px solid yellow ;">
+    <img src="{% static 'images/1.jpg' %}" class="img-responsive" width="100%">
+  </header> <!-- End Header Jumbotron -->
+
+<!--
+A breadcrumb navigation provide links back to each previous page the user navigated through,
+and shows the user's current location in a website.
+-->
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{% url 'index' %}" >Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Request Quote</li>
+  </ol>
+</nav>
+
+
+<div class="card shadow container mb-5">
+    <div class="card-body">
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Request Quote</h5>
+<div class="container-fluid">
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name"  class="form-control" placeholder="Name">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email"  class="form-control" placeholder="Email">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Contact Number</label>
+                 <input type="text" name="contact"  class="form-control" placeholder="Contact Number">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Where do you want the Packers & Movers service?</label>
+                 <input type="text" name="location"  class="form-control" placeholder="Where do you want the Packers & Movers service?">
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Where are you shifting?</label>
+                <input type="text" name="shiftingloc"  class="form-control" placeholder="Where are you shifting?">
+            </select>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Date of Shifting</label>
+                 <input type="date" name="shiftingdate"  class="form-control" >
+            </div>
+        </div>
+
+         <div class="col-sm-12">
+            <div class="form-group">
+                <label>What do you want to shift?</label>
+                 <select name="briefitems" required class="form-control">
+                <option value="">Select</option>
+                <option value="Very Few Items">Very Few Items</option>
+                <option value="1 BHK">1 BHK</option>
+                    <option value="2 BHK">2 BHK</option>
+                    <option value="3 BHK">3 BHK</option>
+            </select>
+
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label>Please mention all the items that you are willing to shift?</label>
+                <textarea name="items"  class="form-control" placeholder="Please mention all the items that you are willing to shift?"></textarea>
+            </div>
+        </div>
+
+    </div>
+    <input type="submit" value="Submit" class="m-2 px-3 btn btn-primary">
+</form>
+</div>
+</div>
+</div>
+
+{% ifequal error "no" %}
+<script>
+    alert('Your Request Has Been Send. We Will Contact You Soon');
+    window.location=('{% url 'request_quote' %}');
+</script>
+{% endifequal %}
+{% ifequal error "yes" %}
+<script>
+    alert('Something Went Wrong. Please try again');
+</script>
+{% endifequal %}
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Between Dates Reports</h5>
+<div class="container-fluid">
+
+        <div class="form-group">
+<form method = "post">
+      {% csrf_token %}
+<label><b>From Date</b></label>
+<input type = "date" name = "fromdate" class="form-control" required>
+<label><b>To Date</b></label>
+<input type = "date" name = "todate" class="form-control" required>
+
+<br>
+<input type = submit name = submit value = "Submit" class="btn btn-primary form-control" >
+</form>
+</div>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'admin_base.html' %}
+{% block main  %}
+<div class="card shadow">
+    <div class="card-body">
+
+        <h5 class="p-2" style="border-bottom: 2px solid orange;">Between Dates Reports</h5>
+<div class="container-fluid">
+
+        <h5 align="center" style="color:blue">Report from {{fd}} to {{td}}</h5>
+
+
+ <table class="table table-bordered table-sm" id="example">
+            <thead>
+                <tr>
+                    <th>S. No.</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in booking %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.mobile}}</td>
+                    <td><a href="{% url 'view_bookingdetail' i.id %}" class="text-primary">View Details</a></td>
+                </tr>
+
+
+                 {% empty %}
+                                   <tr>
+                                      <td colspan="8"> No record found against this search</td>
+                                   </tr>
+
+ {% endfor %}
+                                    </table>
+
+</div>
+</div>
+</div>
+
+
+{% endblock %}
